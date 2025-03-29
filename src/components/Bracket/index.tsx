@@ -21,7 +21,6 @@ const Bracket: FC<PropsWithChildren<BracketProps>> = ({
 }) => {
   return (
     <StyledBracket className={isActive ? "active" : ""}>
-      {/* <div>{duration / 60 / 1000}</div> */}
       <span>{label}</span>
     </StyledBracket>
   );

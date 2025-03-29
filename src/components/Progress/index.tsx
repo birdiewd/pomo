@@ -5,6 +5,7 @@ import { StyledProgress } from "./constants";
 
 const Progress = () => {
   const [percent, setPercent] = useState(0);
+  const [remainingDuration, setRemainingDuration] = useState(0);
 
   const isTesting = useStore(bracketsStore, (state) => state.isTesting);
   const brackets = useStore(bracketsStore, (state) => state.brackets);
@@ -40,6 +41,10 @@ const Progress = () => {
           setActiveBracket(newBracket.pop() || undefined);
         }
 
+        setRemainingDuration(
+          Math.round(Math.max(0, activeBracket.stop - nowTime) / 1000)
+        );
+
         setPercent(
           Math.min(
             1,
@@ -48,9 +53,10 @@ const Progress = () => {
                 activeBracket.duration
           )
         );
-      }, 1000);
+      }, 100);
 
       return () => {
+        setRemainingDuration(0);
         setPercent(0);
         audioRef.current.play();
         clearInterval(updateInterval);
@@ -62,13 +68,17 @@ const Progress = () => {
     <StyledProgress
       style={
         {
-          "--percent": `${percent * 100}%`,
+          "--percent": `${Math.round(percent * 100)}%`,
         } as CSSProperties
       }
     >
       <div>
         <div>{activeBracket?.label}</div>
-        <div>{Math.round(percent * 100)}%</div>
+        <div>{Math.round(percent * 100) / 1}%</div>
+        <div>
+          {Math.floor(remainingDuration / 60).toString()}:
+          {(remainingDuration % 60).toString().padStart(2, "0")}
+        </div>
       </div>
       <audio ref={audioRef} src="/public/car-warning-sound-189734.mp3" />
     </StyledProgress>

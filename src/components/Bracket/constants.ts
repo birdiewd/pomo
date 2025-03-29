@@ -17,7 +17,7 @@ export const StyledBracket = styled.div`
 
   font-weight: bold;
 
-  height: 2rem;
+  height: 1.8rem;
 
   &.active {
     background-color: #000000ff;

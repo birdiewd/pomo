@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BracketTypes } from "../../_stores/bracketStore";
 
 export const StyledWrapper = styled.div`
   padding: 0.5rem;
@@ -14,19 +15,19 @@ export const StyledWrapper = styled.div`
 
   background-color: #858585;
 
-  &.work {
+  &.${BracketTypes.work} {
     background-color: #ffab91;
   }
 
-  &.break {
+  &.${BracketTypes.break} {
     background-color: #7bff7b;
   }
 
-  &.longbreak {
+  &.${BracketTypes.longbreak} {
     background-color: #2ee0ff;
   }
 
-  &.wrap {
+  &.${BracketTypes.wrap} {
     background-color: #ffe957;
   }
 `;

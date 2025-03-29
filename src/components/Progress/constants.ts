@@ -4,10 +4,10 @@ const STRIPE_WIDTH = "50px";
 
 const animatedStripes = keyframes`
 	0% {
-		transform: translateX(0);
+		transform: translateX(-${STRIPE_WIDTH});
 	}
 	100% {
-		transform: translateX(-${STRIPE_WIDTH});
+		transform: translateX(0);
 	}
 `;
 
@@ -23,6 +23,7 @@ export const StyledProgress = styled.div`
   display: grid;
   place-items: center;
 
+  font-size: 0.8rem;
   font-weight: bold;
   color: #ffffff;
   text-shadow:
@@ -51,7 +52,7 @@ export const StyledProgress = styled.div`
     /* width: 100%; */
     width: calc(100% + var(--stripes-size));
     height: var(--percent);
-    transition: height 350ms;
+    transition: height 350ms ease-in-out;
 
     box-shadow:
       0 0 20px black,
@@ -66,6 +67,6 @@ export const StyledProgress = styled.div`
       #ffffff33 75%
     );
     background-size: var(--stripes-size) var(--stripes-size);
-    animation: ${animatedStripes} 3s linear infinite;
+    animation: ${animatedStripes} 5s linear infinite;
   }
 `;

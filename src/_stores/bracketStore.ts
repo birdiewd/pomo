@@ -22,7 +22,7 @@ interface BracketsProps {
   brackets: BracketProps[];
 }
 
-const isTesting = false;
+const isTesting = import.meta.env.PROD ? false : true;
 
 const today = new Date();
 const start = isTesting
@@ -36,36 +36,72 @@ const bracketsStore = new Store<BracketsProps>({
   activeBracket: undefined,
   brackets: (isTesting
     ? [
-        { duration: testingDuration, label: "setup", type: BracketTypes.setup },
-        { duration: testingDuration, label: "work", type: BracketTypes.work },
-        { duration: testingDuration, label: "break", type: BracketTypes.break },
-        { duration: testingDuration, label: "work", type: BracketTypes.work },
         {
-          duration: testingDuration,
+          duration: testingDuration * 9,
+          label: "setup",
+          type: BracketTypes.setup,
+        },
+        {
+          duration: testingDuration * 4,
+          label: "work",
+          type: BracketTypes.work,
+        },
+        { duration: testingDuration, label: "break", type: BracketTypes.break },
+        {
+          duration: testingDuration * 4,
+          label: "work",
+          type: BracketTypes.work,
+        },
+        {
+          duration: testingDuration * 6,
           label: "lunch",
           type: BracketTypes.longbreak,
         },
-        { duration: testingDuration, label: "work", type: BracketTypes.work },
-        { duration: testingDuration, label: "break", type: BracketTypes.break },
-        { duration: testingDuration, label: "work", type: BracketTypes.work },
         {
-          duration: testingDuration,
+          duration: testingDuration * 4,
+          label: "work",
+          type: BracketTypes.work,
+        },
+        { duration: testingDuration, label: "break", type: BracketTypes.break },
+        {
+          duration: testingDuration * 4,
+          label: "work",
+          type: BracketTypes.work,
+        },
+        {
+          duration: testingDuration * 6,
           label: "lunch",
           type: BracketTypes.longbreak,
         },
-        { duration: testingDuration, label: "work", type: BracketTypes.work },
-        { duration: testingDuration, label: "break", type: BracketTypes.break },
-        { duration: testingDuration, label: "work", type: BracketTypes.work },
         {
-          duration: testingDuration,
+          duration: testingDuration * 4,
+          label: "work",
+          type: BracketTypes.work,
+        },
+        { duration: testingDuration, label: "break", type: BracketTypes.break },
+        {
+          duration: testingDuration * 4,
+          label: "work",
+          type: BracketTypes.work,
+        },
+        {
+          duration: testingDuration * 6,
           label: "lunch",
           type: BracketTypes.longbreak,
         },
-        { duration: testingDuration, label: "work", type: BracketTypes.work },
-        { duration: testingDuration, label: "break", type: BracketTypes.break },
-        { duration: testingDuration, label: "work", type: BracketTypes.work },
         {
-          duration: testingDuration,
+          duration: testingDuration * 4,
+          label: "work",
+          type: BracketTypes.work,
+        },
+        { duration: testingDuration, label: "break", type: BracketTypes.break },
+        {
+          duration: testingDuration * 4,
+          label: "work",
+          type: BracketTypes.work,
+        },
+        {
+          duration: testingDuration * 2,
           label: "wrap",
           type: BracketTypes.wrap,
         },
