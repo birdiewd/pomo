@@ -1,12 +1,14 @@
-import { CSSProperties, FC, PropsWithChildren } from 'react'
-import { BracketTypes } from '../../_stores/bracketStore'
+import { FC, PropsWithChildren } from "react";
+import { BracketTypes } from "../../_stores/bracketStore";
+import { StyledBracket } from "./constants";
 
 interface BracketProps {
-  duration: number
-  start: number
-  stop: number
-  label: string
-  type: BracketTypes
+  duration: number;
+  start: number;
+  stop: number;
+  label: string;
+  type: BracketTypes;
+  isActive: boolean;
 }
 
 const Bracket: FC<PropsWithChildren<BracketProps>> = ({
@@ -15,15 +17,14 @@ const Bracket: FC<PropsWithChildren<BracketProps>> = ({
   stop,
   label,
   type,
+  isActive,
 }) => {
   return (
-    <div className={type}>
-      <div>{label}</div>
-      <div>{duration}</div>
-      <div>{start}</div>
-      <div>{stop}</div>
-    </div>
-  )
-}
+    <StyledBracket className={isActive ? "active" : ""}>
+      {/* <div>{duration / 60 / 1000}</div> */}
+      <span>{label}</span>
+    </StyledBracket>
+  );
+};
 
-export default Bracket
+export default Bracket;
