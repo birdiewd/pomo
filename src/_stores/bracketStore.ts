@@ -22,7 +22,7 @@ interface BracketsProps {
   brackets: BracketProps[];
 }
 
-const isTesting = import.meta.env.PROD ? false : true;
+const isTesting = import.meta.env.PROD ? false : false;
 
 const today = new Date();
 const start = isTesting

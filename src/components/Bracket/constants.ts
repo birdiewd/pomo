@@ -10,8 +10,8 @@ export const StyledBracket = styled.div`
 
   border-radius: 0.25rem;
 
-  background-color: #00000033;
-  border: solid #00000077 1px;
+  background-color: #00000044;
+  border: solid #00000066 1px;
 
   color: #ffffffaa;
 
@@ -20,7 +20,14 @@ export const StyledBracket = styled.div`
   height: 1.8rem;
 
   &.active {
-    background-color: #000000ff;
+    border: solid #000000 1px;
+    background-color: #000000;
+    color: white;
+  }
+
+  &.active ~ * {
+    border: solid #000000 1px;
+    background-color: #000000aa;
     color: white;
   }
 

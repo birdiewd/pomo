@@ -14,6 +14,8 @@ const animatedStripes = keyframes`
 export const StyledProgress = styled.div`
   --stripes-size: ${STRIPE_WIDTH};
 
+  border: inset #000000cc 1px;
+
   position: relative;
   height: 100%;
   border-radius: 1rem;
@@ -36,11 +38,11 @@ export const StyledProgress = styled.div`
     text-align: center;
 
     :first-child {
-      font-size: 6lvw;
+      font-size: 2.5rem;
     }
 
     :last-child {
-      font-size: 4lvw;
+      font-size: 2rem;
     }
   }
 
@@ -58,6 +60,8 @@ export const StyledProgress = styled.div`
       0 0 20px black,
       0 0 10px black,
       0 0 3px black;
+
+    border-bottom: solid #000000 3px;
 
     background: repeating-linear-gradient(
       45deg,
