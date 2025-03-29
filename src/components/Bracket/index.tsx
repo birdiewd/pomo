@@ -20,7 +20,10 @@ const Bracket: FC<PropsWithChildren<BracketProps>> = ({
   isActive,
 }) => {
   return (
-    <StyledBracket className={isActive ? "active" : ""}>
+    <StyledBracket
+      className={isActive ? "active" : ""}
+      title={`${type} :: ${Math.floor(duration / 60 / 1000)} minutes`}
+    >
       <span>{label}</span>
     </StyledBracket>
   );
