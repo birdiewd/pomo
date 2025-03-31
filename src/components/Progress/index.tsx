@@ -80,7 +80,7 @@ const Progress = () => {
           {(remainingDuration % 60).toString().padStart(2, "0")}
         </div>
       </div>
-      <audio ref={audioRef} src="/car-warning-sound-189734.mp3" />
+      <audio ref={audioRef} src="car-warning-sound-189734.mp3" />
     </StyledProgress>
   );
 };
